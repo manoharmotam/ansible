@@ -1,0 +1,9 @@
+- name: hello world example
+  hosts:
+  - node1
+  - node2
+  gather_facts: no
+  tasks:
+  - name: Print simple hello world
+    debug:
+      msg: "Hello World"
