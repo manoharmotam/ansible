@@ -1,0 +1,11 @@
+- name: Play to demonstrate variables
+  hosts: local
+  connection: local
+  vars: [NAME: SNEHA, AREA: TGATE]
+  vars_files:
+    - config.yml
+  tasks:
+  - name: Debug a tasks
+    # vars: [NAME: MANOHAR, AREA: SEC-BAD]
+    debug:
+      msg: "Hi, this is {{ NAME }} from {{ AREA }}"

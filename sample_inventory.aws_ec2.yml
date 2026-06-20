@@ -1,0 +1,19 @@
+plugin: amazon.aws.aws_ec2
+regions:
+  - us-east-1
+
+# Automatically construct manageable inventories filtered by tag criteria
+filters:
+  instance-state-name: [ stopped ]
+
+# Automatically classify targeted endpoints into custom runtime groups
+keyed_groups:
+  - key: tags.Role
+    prefix: role
+  - key: placement.region
+    prefix: region
+
+# Set the parameter used by Ansible to establish remote connections
+hostnames:
+  - private-ip-address
+
